@@ -125,6 +125,58 @@
             }
         }
     </style>
+     <style>
+        .neu-container-1 {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 250px;
+            background-color: var(--neu-background-color);
+        }
+
+        .neu-btn-1 {
+            display: inline-block;
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            
+            color: var(--neu-text-color);
+            background-color: var(--neu-background-color);
+            
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            text-decoration: none;
+
+            /* Two shadows create the effect: a light one and a dark one */
+            box-shadow: 
+                calc(-1 * var(--neu-shadow-offset)) calc(-1 * var(--neu-shadow-offset)) calc(var(--neu-shadow-offset) * 2) var(--neu-light-shadow-color),
+                var(--neu-shadow-offset) var(--neu-shadow-offset) calc(var(--neu-shadow-offset) * 2) var(--neu-dark-shadow-color);
+            
+            transition: box-shadow 0.15s ease, color 0.15s ease;
+        }
+        
+        .neu-btn-1:active {
+            /* 'inset' makes the shadows appear inside the button, creating the pressed effect */
+            box-shadow: 
+                inset calc(-1 * var(--neu-shadow-offset)) calc(-1 * var(--neu-shadow-offset)) calc(var(--neu-shadow-offset) * 2) var(--neu-light-shadow-color),
+                inset var(--neu-shadow-offset) var(--neu-shadow-offset) calc(var(--neu-shadow-offset) * 2) var(--neu-dark-shadow-color);
+            color: var(--neu-text-color-active);
+        }
+        
+        .neu-btn-1:focus-visible {
+            outline: 2px solid var(--neu-focus-outline);
+            outline-offset: 4px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="neu-container-1">
+        <button type="button" class="neu-btn-1">Toggle Setting</button>
+    </div>
+
 </head>
 <body>
     <header class="navbar">
