@@ -20,7 +20,22 @@
         
         *, *::before, *::after { box-sizing: border-box; }
         body { margin: 0; font-family: var(--font-family-sans-serif); background-color: var(--color-background); }
-        .content { min-height: 150vh; padding: 1.5rem; text-align: center; color: #fff; padding-top: calc(var(--navbar-height) + 2rem); }
+        .content { min-height: 150vh; padding: 1.5rem; text-align: center; color: #fff; display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background-image:
+        linear-gradient(
+            rgba(20, 40, 20, 0.55),
+            rgba(20, 40, 20, 0.55)
+        ),
+        url("therapy.jfif");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+                  padding-top: calc(var(--navbar-height) + 2rem); }
         ul { list-style: none; margin: 0; padding: 0; }
         a { text-decoration: none; color: var(--color-text); }
 
