@@ -3,6 +3,71 @@
   <head>
     <meta charset="utf-8">
     <title>KZen Psychological Services</title>
+
+    <!-- Place the following CSS in your <head> or stylesheet -->
+<style>
+/*===Grid Container for the Cards  ===*/
+.cards-grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.5rem;
+  padding 1rem; /*Optional: provides spacing from the viewport edges */
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto 'Helvetica Neue, Arial, 'Noto Sans', sans-serif;
+}
+
+/*=== General Card Styles === */
+.it-card-container {
+  --it-card-padding: 1.5rem;
+  --it-card-border-radius: 12px;
+  --it-card-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -2px
+rgba(0,0,0,0.1);
+
+  background:#ffffff;
+  border-radius: var(--it-card-border-radius);
+  overflow: hidden;
+  box-shadow: var(--it-card-shadow);
+  transition: transform 0.2s ease-in-out;
+}
+
+.it-card-container:hover {
+  transform: translateY(-5px);
+}
+
+.it-card-container a.it-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+/*=== Card Image ===*/
+.it-card-container .it-card-image {
+  width: 100%
+  height: 220px
+  object-fit: cover;
+  display: block;
+}
+
+/*=== Card Content ===*/
+.it-card-container .it-card-content {
+  padding: var(--it-card-padding);
+}
+
+.it-card-container it.-card-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.3;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+.it-card-container it.-card-description {
+  font-size: 1rem;
+  line-height: 1.5;
+  margin: 0;
+  color: #4b5563; /* A muted gray */
+}
+
+
   </head>
   <body>
     <h1>KZen Psychological Services</h1>
