@@ -90,6 +90,155 @@
                 pointer-events: none; /* Allows clicks to go through to the link */
                 z-index: -1;
             }
+          /* ========================================
+   SERVICES MEGA MENU
+======================================== */
+
+.mega-menu-item {
+    position: static;
+}
+
+.mega-menu {
+    position: absolute;
+
+    top: var(--navbar-height);
+    left: 50%;
+
+    width: min(90vw, 1000px);
+
+    background-color: #f5f5ec;
+
+    border-radius: var(--border-radius);
+
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transform: translateX(-50%) translateY(-10px);
+
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease,
+        visibility 0.3s ease;
+
+    z-index: 1000;
+}
+
+
+/* SHOW ONLY WHEN SERVICES IS HOVERED */
+
+.mega-menu-item:hover > .mega-menu,
+.mega-menu-item:focus-within > .mega-menu {
+
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+
+    transform: translateX(-50%) translateY(0);
+}
+
+
+/* MEGA MENU CONTENT */
+
+.mega-menu__content {
+    padding: 2rem;
+}
+
+.mega-menu__grid {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr 1.2fr;
+
+    gap: 2rem;
+}
+
+.mega-menu__heading {
+    margin: 0 0 1rem;
+
+    font-size: 0.9rem;
+    font-weight: 600;
+
+    text-transform: uppercase;
+
+    color: #556B2F;
+}
+
+.mega-menu__list li {
+    margin-bottom: 0.4rem;
+}
+
+.mega-menu__list li a {
+    display: block;
+
+    padding: 0.7rem;
+
+    color: #283618;
+
+    border-radius: 6px;
+
+    transition:
+        background-color 0.25s ease,
+        transform 0.25s ease;
+}
+
+.mega-menu__list li a:hover {
+    background-color: #e7e8d8;
+
+    transform: translateX(4px);
+}
+
+
+/* FEATURE CARD */
+
+.mega-menu__feature {
+    overflow: hidden;
+
+    border-radius: var(--border-radius);
+
+    background-color: #e7e8d8;
+}
+
+.mega-menu__feature img {
+    display: block;
+
+    width: 100%;
+    height: 150px;
+
+    object-fit: cover;
+}
+
+.mega-menu__feature-content {
+    padding: 1.25rem;
+}
+
+.mega-menu__feature-content h4 {
+    margin: 0 0 0.5rem;
+
+    color: #283618;
+}
+
+.mega-menu__feature-content p {
+    margin: 0 0 1rem;
+
+    color: #596044;
+
+    font-size: 0.9rem;
+}
+
+.mega-menu__cta {
+    display: inline-block;
+
+    padding: 0.6rem 1rem;
+
+    background-color: #556B2F;
+
+    color: white;
+
+    border-radius: var(--border-radius);
+}
+
             
             /* The rectangle path to be animated */
             .animated-border-svg rect {
@@ -132,98 +281,199 @@
             <a href="#" class="navbar__brand">KZen Psychological Services</a>
             <nav class="navbar__nav" id="main-nav">
                 <ul class="nav-list">
-                    <li class= "mega-menu-item">
-                      <a href="#" 
-                        class="nav-link mega-menu-toggle"
-                        role="button"
-                        aria-haspopup="true"
-                        aria-expanded="false"
-                        >
-                        Home
-                        <svg class="animated-border-svg" viewBox="0 0 100 40" preserveAspectRatio="none"><rect width="100%" height="100%" rx="8" /></svg>
-                    </a></li>
-                    <li class="navbar__item mega-menu-item">
-                      <a href="#" 
-                        class="navbar__link mega-menu-item-toggle"
-                        role="button"
-                        aria-haspopup="true"
-                        aria-expanded="false"
-                        >
-                        Services
-                        <svg class="animated-border-svg" viewBox="0 0 100 40" preserveAspectRatio="none"><rect width="100%" height="100%" rx="8" /></svg>
-                    </a>
-                    <div class="mega-menu">
-                    <div class="mega-menu__content">
-                    <div class="mega-menu__grid">
-                    <div class="mega-manu__column">
-                    <h3 class="mega-menu__heading">
-                      For Individuals
-                    </h3>
-                      <ul class="mega-menu__list">
-                        <li><a href="#"><svg class="icon" viewBox="0 0 24 24"><path fill="currentColor" d="M14,6H10V4H14M10,12H14V14H10M20,2H4C2.9,2 2,2.9 2,4V20C2,21.1 2.9,22 4,22H20C21.1,22 22,21.1 22,20V4C22,2.9 21.1,2 20,2Z"></path></svg> <span>Counseling</span></a></li>
-                                            <li><a href="#"><svg class="icon" viewBox="0 0 24 24"><path fill="currentColor" d="M3,3H9V7H3V3M15,10H21V14H15V10M15,17H21V21H15V17M13,3H21V7H13V3M3,10H11V21H3V10M15,3H13V7H15V3Z"></path></svg> <span>Psychotherapy</span></a></li>
-                                            <li><a href="#"><svg class="icon" viewBox="0 0 24 24"><path fill="currentColor" d="M19,20C19,21.1 18.1,22 17,22H7C5.9,22 5,21.1 5,20V4C5,2.9 5.9,2 7,2H17C18.1,2 19,2.9 19,4V20M17,18H7V6H17V18M12,10.5C11.3,10.5 10.6,10.6 10,10.8V12.1C10.5,12 11,12 11.5,12C12.4,12 12.9,12.5 12.9,13.2C12.9,13.8 12.5,14.3 11.5,14.3H11.2V15.5H11.5C13.2,15.5 14.1,14.7 14.1,13.2C14.1,11.8 13.1,10.5 11.5,10.5H12Z"></path></svg> <span>Psychological Assessments</span></a></li>
-                                        </ul>
-                                    </div>
+                  <ul class="nav-list">
+
+    <!-- HOME -->
+    <li>
+        <a href="#" class="nav-link">
+            Home
+            <svg class="animated-border-svg"
+                 viewBox="0 0 100 40"
+                 preserveAspectRatio="none">
+                <rect width="100%" height="100%" rx="8" />
+            </svg>
+        </a>
+    </li>
+
+
+    <!-- SERVICES -->
+    <li class="mega-menu-item">
+
+        <a href="#"
+           class="nav-link mega-menu-toggle"
+           role="button"
+           aria-haspopup="true"
+           aria-expanded="false">
+
+            Services
+
+            <svg class="animated-border-svg"
+                 viewBox="0 0 100 40"
+                 preserveAspectRatio="none">
+                <rect width="100%" height="100%" rx="8" />
+            </svg>
+
+        </a>
+
+
+        <!-- SERVICES MEGA MENU -->
+        <div class="mega-menu">
+
+            <div class="mega-menu__content">
+
+                <div class="mega-menu__grid">
+
+
+                    <!-- COLUMN 1 -->
                     <div class="mega-menu__column">
-                      <h3 class="mega-menu__heading">For Employees
-                      </h3>
-                      <ul class="mega-menu__list">
-                        <li> <a href="#"><svg class="icon" viewBox="0 0 24 24"><path fill="currentColor" d="M6.5, 20Q4.22,202.61,18.39Q1,16.78 1,14.5Q1,12.55 2.13,11.09Q3.25,9.63 5.08,9.22Q5.5,7.05 7.15,5.72Q8.8,4.4 11,4.4Q13.3,4.415.1,6.15Q16.9,7.9 16.8,10.2Q16.9,10.55 16.87,10.9Q18.3,10.97 19.4,11.95Q20.5,12.93 20.5,14,4Q20.5,15.82 19.5,16.86Q18.5,17.9 17,17.9H13.2Q13.05,19.1 12.13,20.05Q11.2,21 10,21Q8.65,21 7.58,19.93Q6.5,18.85 6.5,17.5V17.445Q6.5,17.85 6.38,18.23Q6.25,18.6 6.5,20M6.5,15.6V17.5Q6.5,18.05 6.85,18.4Q7.2,18.75 7.75,18.75Q8.25,18.75 8.6,18.4Q8.95,18.05 8.95,17.5V15.5H17Q17.75,15.5 18.25,15Q18.75,14.5 18.75,14.4Q18.75,13.6 18.25,13.1Q17.75,12.6 17,12.6Q16.7,12.6 16.35,12.75V10.2Q16.35,8.25 14.85,6.75Q13.35,5.25 11.35,5.25Q9.35,5.25 7.9,6.75Q6.45,8.25 6.45,10.2V11.2L5.4,11.25Q4,11.65 3.25,12.6Q2.5,13.55 2.5,14.5Q2.5,16.05 3.5,17.05Q4.5,18.05 6.05,18.05H6.5V15.6Z"></path></svg><span>Mental Health Certificate</span></a></li>
-                    <li><a href="#"><svg class="icon" viewBox="0 0 24 24"><path fill="currentColor" d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M16.2,16.2L11,13V7H12.5V12.2L17,14.9L16.2,16.2Z"></path></svg> <span>Mental Health Workshops</span></a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="mega-menu__column mega-menu__column--feature">
-                                        <div class="mega-menu__feature">
-                                            <img src="https://placehold.co/600x400/0056b3/ffffff?text=New+Feature" alt="Promotional image for a new feature.">
-                                            <div class="mega-menu__feature-content">
-                        <li class="mega-menu-item" >
-                      <a href="#" 
-                        class="nav-link mega-menu-toggle"
-                        role="button"
-                        aria-haspopup="true"
-                        aria-expanded="false"
-                        >
-                      Pricing
-                      <svg class="animated-border-svg" viewBox="0 0 100 40" preserveAspectRatio="none"><rect width="100%" height="100%" rx="8" /></svg>
-                      </a></li>
-                    <li class="mega-menu-item"><a href="#" 
-                        class="nav-link mega-menu-toggle"
-                        role="button"
-                        aria-haspopup="true"
-                        aria-expanded="false"
-                        >
-                        About
-                        <svg class="animated-border-svg" viewBox="0 0 100 40" preserveAspectRatio="none"><rect width="100%" height="100%" rx="8" /></svg>
-                    </a></li>
-                    <li><a href="#" class="nav-link">
-                        Set an Appoinment
-                        <svg class="animated-border-svg" viewBox="0 0 100 40" preserveAspectRatio="none"><rect width="100%" height="100%" rx="8" /></svg>
-                    </a></li>
+
+                        <h3 class="mega-menu__heading">
+                            For Individuals
+                        </h3>
+
+                        <ul class="mega-menu__list">
+
+                            <li>
+                                <a href="#">
+                                    Counseling
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#">
+                                    Psychotherapy
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#">
+                                    Psychological Assessments
+                                </a>
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+
+                    <!-- COLUMN 2 -->
+                    <div class="mega-menu__column">
+
+                        <h3 class="mega-menu__heading">
+                            For Employees
+                        </h3>
+
+                        <ul class="mega-menu__list">
+
+                            <li>
+                                <a href="#">
+                                    Mental Health Certificate
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#">
+                                    Mental Health Workshops
+                                </a>
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+
+                    <!-- COLUMN 3 -->
+                    <div class="mega-menu__column">
+
+                        <div class="mega-menu__feature">
+
+                            <img src="therapy.jfif"
+                                 alt="KZen Psychological Services">
+
+                            <div class="mega-menu__feature-content">
+
+                                <h4>
+                                    Mental Health & Wellbeing
+                                </h4>
+
+                                <p>
+                                    Compassionate psychological services
+                                    designed to support your wellbeing.
+                                </p>
+
+                                <a href="#"
+                                   class="mega-menu__cta">
+                                    Learn More
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </li>
+
+
+    <!-- PRICING -->
+    <li>
+        <a href="#" class="nav-link">
+            Pricing
+
+            <svg class="animated-border-svg"
+                 viewBox="0 0 100 40"
+                 preserveAspectRatio="none">
+                <rect width="100%" height="100%" rx="8" />
+            </svg>
+
+        </a>
+    </li>
+
+
+    <!-- ABOUT -->
+    <li>
+        <a href="#" class="nav-link">
+            About
+
+            <svg class="animated-border-svg"
+                 viewBox="0 0 100 40"
+                 preserveAspectRatio="none">
+                <rect width="100%" height="100%" rx="8" />
+            </svg>
+
+        </a>
+    </li>
+
+
+    <!-- APPOINTMENT -->
+    <li>
+        <a href="#" class="nav-link">
+            Set an Appointment
+
+            <svg class="animated-border-svg"
+                 viewBox="0 0 100 40"
+                 preserveAspectRatio="none">
+                <rect width="100%" height="100%" rx="8" />
+            </svg>
+
+        </a>
+    </li>
+
+</ul>
+
                 </ul>
             </nav>
             <button class="navbar__mobile-toggle" id="mobile-toggle" aria-label="Open Menu">
                 <svg width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z" /></svg>
             </button>
         </div>
-      <div class="mega-menu">
-        <div class="mega-menu__content>
-          <div class="mega-menu__grid>
-          <div class="mega-menu__column>
-            <div class="mega-menu__heading">
-            <h3 class="mega-menu__heading">
-              Services
-            </h3>
-            <ul class="mega-menu__list">
-              <li>
-                <a href="#">For Individual</a>
-              </li>
-            <li>
-              <a href="#">For Employees</a>
-            </li>
-              <li>
-                <a href="#">For Students</a>
-              </li>
     </header>
 
     <div class="mobile-menu-pane" id="mobile-menu-pane"></div>
