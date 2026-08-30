@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KZen Psychological Services</title>
+    <style>
+        :root {
+            --color-background: #556B2F;
+            --color-text: #FFF8DC;
+            --color-link-hover: #ffffff;
+            --color-primary: #ffffff;
+            --font-family-sans-serif: "Inter", -apple-system, sans-serif;
+            --navbar-height: 80px;
+            --border-radius: 8px;
+            --transition-speed: 0.6s;
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap');
+        
+        *, *::before, *::after { box-sizing: border-box; }
+        body { margin: 0; font-family: var(--font-family-sans-serif); background-color: var(--color-background); }
+        .content { min-height: 150vh; padding: 1.5rem; text-align: center; color: #fff; display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background-image:
+        linear-gradient(
+            rgba(20, 40, 20, 0.55),
+            rgba(20, 40, 20, 0.55)
+        ),
+        url("therapy.jfif");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+                  padding-top: calc(var(--navbar-height) + 2rem); }
+        ul { list-style: none; margin: 0; padding: 0; }
+        a { text-decoration: none; color: var(--color-text); }
+
+        .navbar {
+            position: sticky; top: 0; z-index: 1000;
+            height: var(--navbar-height); display: flex; align-items: center;
+        }
+        .navbar__container { display: flex; align-items: center; justify-content: space-between; width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+        .navbar__brand { font-size: 1.5rem; font-weight: 600; }
+        .navbar__nav { display: none; }
+        
+        /* Mobile Hamburger Menu */
+        .navbar__mobile-toggle { display: block; background: transparent; border: none; cursor: pointer; color: var(--color-text); }
+        .mobile-menu-pane {
+            position: fixed; top: 0; left: 0; width: 80%; max-width: 300px; height: 100%;
+            background-color: #141414; padding: 1.5rem; transform: translateX(-100%);
+            transition: transform 0.3s ease; z-index: 1001;
+        }
+        .mobile-menu-pane.is-open { transform: translateX(0); }
+        .mobile-menu-pane ul { margin-top: 4rem; }
+        .mobile-menu-pane .nav-link { display: block; font-size: 1.2rem; padding: 1rem 0; }
+
+        .animated-border-svg {
+            display: none;
+        }
+
+        /*
+        ========================================
+        Desktop & SVG Border Styles
+        ========================================
+        */
+        @media (min-width: 576px) {
+          .nav-link:focus-visible { outline: none; }
+            .navbar__mobile-toggle, .mobile-menu-pane { display: none; }
+            .navbar__nav { display: block; }
+            .nav-list { display: flex; gap: 1rem; }
+          /* ================================
+   SERVICES MEGA MENU
+================================ */
+
+.mega-menu-item {
+    position: static;
+}
+
+.mega-menu {
+    position: absolute;
+
+    top: var(--navbar-height);
+    left: 50%;
+
+    width: 90vw;
+    max-width: 1000px;
+
+    background-color: #f5f5ec;
+
+    border-radius: var(--border-radius);
+
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transform: translateX(-50%) translateY(-10px);
+
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease,
+        visibility 0.3s ease;
+
+    z-index: 1001;
+}
+
+
+/* SHOW ONLY WHEN SERVICES IS HOVERED */
+
+.mega-menu-item:hover > .mega-menu {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+
+    transform: translateX(-50%) translateY(0);
+}
+
+
+/* MEGA MENU CONTENT */
+
+.mega-menu__content {
+    padding: 2rem;
+}
+
+.mega-menu__grid {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr 1.2fr;
+
+    gap: 2rem;
+}
+
+.mega-menu__column {
+    min-width: 0;
+}
+
+.mega-menu__heading {
+    display: block;
+
+    margin: 0 0 1rem;
+
+    font-size: 0.9rem;
+    font-weight: 600;
+
+    text-transform: uppercase;
+
+    color: #556B2F;
+}
+
+.mega-menu__list {
+    padding: 0;
+}
+
+.mega-menu__list li {
+    margin-bottom: 0.4rem;
+}
+
+.mega-menu__list li a {
+    display: block;
+
+    padding: 0.7rem;
+
+    color: #283618;
+
+    border-radius: 6px;
+
+    transition:
+        background-color 0.25s ease,
+        transform 0.25s ease;
+}
+
+.mega-menu__list li a:hover {
+    background-color: #e7e8d8;
+    transform: translateX(4px);
+}
+
+
+/* FEATURE */
+
+.mega-menu__feature {
+    overflow: hidden;
+
+    border-radius: var(--border-radius);
+
+    background-color: #e7e8d8;
+}
+
+.mega-menu__feature img {
+    display: block;
+
+    width: 100%;
+    height: 150px;
+
+    object-fit: cover;
+}
+
+.mega-menu__feature-content {
+    padding: 1.25rem;
+}
+
+.mega-menu__feature-content h4 {
+    margin: 0 0 0.5rem;
+    color: #283618;
+}
+
+.mega-menu__feature-content p {
+    margin: 0 0 1rem;
+    color: #596044;
+    font-size: 0.9rem;
+}
+
+.mega-menu__cta {
+    display: inline-block;
+
+    padding: 0.6rem 1rem;
+
+    background-color: #556B2F;
+    color: white;
+
+    border-radius: var(--border-radius);
+}
+
+
+            .nav-link {
+                position: relative;
+                padding: 1rem 1.5rem;
+                font-weight: 500;
+                transition: color var(--transition-speed) ease;
+            }
+            .nav-link:hover, .nav-link:focus-visible { color: var(--color-link-hover); }
+            :focus-visible { outline: 2px solid var(--color-primary); border-radius: var(--border-radius); }
+            .nav-link:focus-visible { outline: none; }
+            
+            /* The SVG container */
+            .animated-border-svg {
+                display: block;
+                position: absolute; inset: 0;
+                width: 100%; height: 100%;
+                pointer-events: none; /* Allows clicks to go through to the link */
+                z-index: -1;
+            }
+            
+            /* The rectangle path to be animated */
+            .animated-border-svg rect {
+                fill: none;
+                stroke: var(--color-primary);
+                stroke-width: 2px;
+                stroke-linecap: round;
+                
+                /*
+                 This is the core animation technique.
+                 - stroke-dasharray is set to a large number that's guaranteed
+                   to be longer than the perimeter of the rectangle. This creates
+                   a single long dash followed by an equally long gap.
+                 - stroke-dashoffset pushes this dash along the path. By setting
+                   it to the same value, we push the visible dash completely out of view.
+                */
+                stroke-dasharray: 1000;
+                stroke-dashoffset: 1000;
+                transition: stroke-dashoffset var(--transition-speed) ease-in-out;
+            }
+            
+            /*
+             On hover/focus, we transition the offset back to 0.
+             This animates the dash back into view, making it "draw" itself.
+            */
+            .nav-link:hover .animated-border-svg rect,
+            .nav-link:focus-visible .animated-border-svg rect {
+                stroke-dashoffset: 0;
+            }
+
+            @media (prefers-reduced-motion: reduce) {
+                .animated-border-svg rect { transition: none; }
+            }
+        }
+    </style>
+  </head>
+<body>
+    <header class="navbar">
+        <div class="navbar__container">
+            <a href="#" class="navbar__brand">KZen Psychological Services</a>
+            <nav class="navbar__nav" id="main-nav">
+
+    <ul class="nav-list">
+
+        <!-- HOME -->
+        <li>
+            <a href="#" class="nav-link">
+                Home
+
+                <svg class="animated-border-svg"
+                     viewBox="0 0 100 40"
+                     preserveAspectRatio="none">
+                    <rect width="100%" height="100%" rx="8" />
+                </svg>
+            </a>
+        </li>
+
+
+        <!-- SERVICES + MEGA MENU -->
+        <li class="mega-menu-item">
+
+            <a href="#"
+               class="nav-link mega-menu-toggle"
+               role="button"
+               aria-haspopup="true"
+               aria-expanded="false">
+
+                Services
+
+                <svg class="animated-border-svg"
+                     viewBox="0 0 100 40"
+                     preserveAspectRatio="none">
+                    <rect width="100%" height="100%" rx="8" />
+                </svg>
+
+            </a>
+
+
+            <!-- MEGA MENU -->
+            <div class="mega-menu">
+
+                <div class="mega-menu__content">
+
+                    <div class="mega-menu__grid">
+
+
+                        <!-- COLUMN 1 -->
+                        <div class="mega-menu__column">
+
+                            <h3 class="mega-menu__heading">
+                                For Individuals
+                            </h3>
+
+                            <ul class="mega-menu__list">
+
+                                <li>
+                                    <a href="#">
+                                        Counseling
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="#">
+                                        Psychological Assessment
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="#">
+                                        Psychotherapy
+                                    </a>
+                                </li>
+
+                            </ul>
+
+                        </div>
+
+
+                        <!-- COLUMN 2 -->
+                        <div class="mega-menu__column">
+
+                            <h3 class="mega-menu__heading">
+                                Employee-Related
+                            </h3>
+
+                            <ul class="mega-menu__list">
+
+                                <li>
+                                    <a href="#">
+                                        Mental Health Certificate
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="#">
+                                        Mental Health Workshops
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="#">
+                                        Employee Assistance Programs (EAP)
+                                    </a>
+                                </li>
+
+                            </ul>
+
+                        </div>
+
+
+                        <!-- COLUMN 3 -->
+                          <div class="mega-menu__column">
+
+                            <h3 class="mega-menu__heading">
+                                For Students
+                            </h3>
+
+                            <ul class="mega-menu__list">
+
+                                <li>
+                                    <a href="#">
+                                        Research Instrument Validation
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="#">
+                                        Qualitative Data Analysis
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="#">
+                                        Clinical Internship
+                                    </a>
+                                </li>
+
+                            </ul>
+
+                        </div>
+            <h4>
+                                        A Safe Space for Healing
+                                    </h4>
+
+                                    <p>
+                                        Compassionate psychological
+                                        services designed to support
+                                        your mental health and wellbeing.
+                                    </p>
+
+                                    <a href="#appointment"
+                                       class="mega-menu__cta">
+                                        Book an Appointment
+                                    </a>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </li>
+
+
+        <!-- PRICING -->
+        <li>
+            <a href="#" class="nav-link">
+                Pricing
+
+                <svg class="animated-border-svg"
+                     viewBox="0 0 100 40"
+                     preserveAspectRatio="none">
+                    <rect width="100%" height="100%" rx="8" />
+                </svg>
+            </a>
+        </li>
+
+
+        <!-- ABOUT -->
+        <li>
+            <a href="#" class="nav-link">
+                About
+
+                <svg class="animated-border-svg"
+                     viewBox="0 0 100 40"
+                     preserveAspectRatio="none">
+                    <rect width="100%" height="100%" rx="8" />
+                </svg>
+            </a>
+        </li>
+
+
+        <!-- APPOINTMENT -->
+        <li>
+            <a href="#" class="nav-link">
+                Set an Appointment
+
+                <svg class="animated-border-svg"
+                     viewBox="0 0 100 40"
+                     preserveAspectRatio="none">
+                    <rect width="100%" height="100%" rx="8" />
+                </svg>
+            </a>
+        </li>
+
+    </ul>
+
+            </nav>
+            <button class="navbar__mobile-toggle" id="mobile-toggle" aria-label="Open Menu">
+                <svg width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z" /></svg>
+            </button>
+        </div>
+    </header>
+
+    <div class="mobile-menu-pane" id="mobile-menu-pane"></div>
+    <main class="content"><h1>Calm the Mind,</h1>
+    <h2>Heal Within.</h2>
+    <p>
+      Receive compassionate psychological services made for you.
+    </p>
+      
+    </main>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const mobileToggle = document.getElementById('mobile-toggle');
+        const mobileMenuPane = document.getElementById('mobile-menu-pane');
+        const mainNav = document.getElementById('main-nav');
+        if(mainNav) {
+            mobileMenuPane.innerHTML = mainNav.innerHTML;
+        }
+        if(mobileToggle) {
+            mobileToggle.addEventListener('click', (e) => {
+                e.stopPropagation();
+                mobileMenuPane.classList.toggle('is-open');
+            });
+        }
+    });
+    </script>
+</body>
+</html>
