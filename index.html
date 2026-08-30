@@ -68,9 +68,163 @@
         ========================================
         */
         @media (min-width: 576px) {
+          .nav-link:focus-visible { outline: none; }
             .navbar__mobile-toggle, .mobile-menu-pane { display: none; }
             .navbar__nav { display: block; }
             .nav-list { display: flex; gap: 1rem; }
+          /* ================================
+   SERVICES MEGA MENU
+================================ */
+
+.mega-menu-item {
+    position: static;
+}
+
+.mega-menu {
+    position: absolute;
+
+    top: var(--navbar-height);
+    left: 50%;
+
+    width: 90vw;
+    max-width: 1000px;
+
+    background-color: #f5f5ec;
+
+    border-radius: var(--border-radius);
+
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transform: translateX(-50%) translateY(-10px);
+
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease,
+        visibility 0.3s ease;
+
+    z-index: 1001;
+}
+
+
+/* SHOW ONLY WHEN SERVICES IS HOVERED */
+
+.mega-menu-item:hover > .mega-menu {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+
+    transform: translateX(-50%) translateY(0);
+}
+
+
+/* MEGA MENU CONTENT */
+
+.mega-menu__content {
+    padding: 2rem;
+}
+
+.mega-menu__grid {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr 1.2fr;
+
+    gap: 2rem;
+}
+
+.mega-menu__column {
+    min-width: 0;
+}
+
+.mega-menu__heading {
+    display: block;
+
+    margin: 0 0 1rem;
+
+    font-size: 0.9rem;
+    font-weight: 600;
+
+    text-transform: uppercase;
+
+    color: #556B2F;
+}
+
+.mega-menu__list {
+    padding: 0;
+}
+
+.mega-menu__list li {
+    margin-bottom: 0.4rem;
+}
+
+.mega-menu__list li a {
+    display: block;
+
+    padding: 0.7rem;
+
+    color: #283618;
+
+    border-radius: 6px;
+
+    transition:
+        background-color 0.25s ease,
+        transform 0.25s ease;
+}
+
+.mega-menu__list li a:hover {
+    background-color: #e7e8d8;
+    transform: translateX(4px);
+}
+
+
+/* FEATURE */
+
+.mega-menu__feature {
+    overflow: hidden;
+
+    border-radius: var(--border-radius);
+
+    background-color: #e7e8d8;
+}
+
+.mega-menu__feature img {
+    display: block;
+
+    width: 100%;
+    height: 150px;
+
+    object-fit: cover;
+}
+
+.mega-menu__feature-content {
+    padding: 1.25rem;
+}
+
+.mega-menu__feature-content h4 {
+    margin: 0 0 0.5rem;
+    color: #283618;
+}
+
+.mega-menu__feature-content p {
+    margin: 0 0 1rem;
+    color: #596044;
+    font-size: 0.9rem;
+}
+
+.mega-menu__cta {
+    display: inline-block;
+
+    padding: 0.6rem 1rem;
+
+    background-color: #556B2F;
+    color: white;
+
+    border-radius: var(--border-radius);
+}
+
 
             .nav-link {
                 position: relative;
@@ -131,132 +285,146 @@
         <div class="navbar__container">
             <a href="#" class="navbar__brand">KZen Psychological Services</a>
             <nav class="navbar__nav" id="main-nav">
-                <ul class="nav-list">
-                  <ul class="nav-list">
 
-    <!-- HOME -->
-    <li>
-        <a href="#" class="nav-link">
-            Home
-            <svg class="animated-border-svg"
-                 viewBox="0 0 100 40"
-                 preserveAspectRatio="none">
-                <rect width="100%" height="100%" rx="8" />
-            </svg>
-        </a>
-    </li>
+    <ul class="nav-list">
 
+        <!-- HOME -->
+        <li>
+            <a href="#" class="nav-link">
+                Home
 
-    <!-- SERVICES -->
-  <li class="nav-item mega-menu-item">
-
-    <a href="#"
-       class="nav-link mega-menu-toggle"
-       role="button"
-       aria-haspopup="true"
-       aria-expanded="false">
-
-        Services
-
-        <svg class="animated-border-svg"
-             viewBox="0 0 100 40"
-             preserveAspectRatio="none">
-            <rect width="100%" height="100%" rx="8" />
-        </svg>
-
-    </a>
-
-    <div class="mega-menu">
-
-        <div class="mega-menu__content">
-
-            <div class="mega-menu__grid">
-
-                <div class="mega-menu__column">
-
-                    <h3 class="mega-menu__heading">
-                        Services
-                    </h3>
-
-                    <ul class="mega-menu__list">
-
-                        <li>
-                            <a href="#">
-                                <span>For Individuals</span>
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="#">
-                                <span>For Employees</span>
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="#">
-                                <span>For Students</span>
-                            </a>
-                        </li>
-
-                    </ul>
-
-                </div>
+                <svg class="animated-border-svg"
+                     viewBox="0 0 100 40"
+                     preserveAspectRatio="none">
+                    <rect width="100%" height="100%" rx="8" />
+                </svg>
+            </a>
+        </li>
 
 
-                <div class="mega-menu__column">
+        <!-- SERVICES + MEGA MENU -->
+        <li class="mega-menu-item">
 
-                    <h3 class="mega-menu__heading">
-                        Psychological Assessment & Support
-                    </h3>
+            <a href="#"
+               class="nav-link mega-menu-toggle"
+               role="button"
+               aria-haspopup="true"
+               aria-expanded="false">
 
-                    <ul class="mega-menu__list">
+                Services
 
-                        <li>
-                            <a href="#">
-                                <span>Psychological Assessment</span>
-                            </a>
-                        </li>
+                <svg class="animated-border-svg"
+                     viewBox="0 0 100 40"
+                     preserveAspectRatio="none">
+                    <rect width="100%" height="100%" rx="8" />
+                </svg>
 
-                        <li>
-                            <a href="#">
-                                <span>Counseling</span>
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="#">
-                                <span>Consultation</span>
-                            </a>
-                        </li>
-
-                    </ul>
-
-                </div>
+            </a>
 
 
-                <div class="mega-menu__column">
+            <!-- MEGA MENU -->
+            <div class="mega-menu">
 
-                    <div class="mega-menu__feature">
+                <div class="mega-menu__content">
 
-                        <img src="therapy.jfif"
-                             alt="KZen Psychological Services">
+                    <div class="mega-menu__grid">
 
-                        <div class="mega-menu__feature-content">
 
-                            <h4>A Safe Space for Healing</h4>
+                        <!-- COLUMN 1 -->
+                        <div class="mega-menu__column">
 
-                            <p>
-                                Compassionate psychological services
-                                designed to support your mental health
-                                and wellbeing.
-                            </p>
+                            <h3 class="mega-menu__heading">
+                                Services
+                            </h3>
 
-                            <a href="#appointment"
-                               class="mega-menu__cta">
-                                Book an Appointment
-                            </a>
+                            <ul class="mega-menu__list">
+
+                                <li>
+                                    <a href="#">
+                                        For Individuals
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="#">
+                                        For Employees
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="#">
+                                        For Students
+                                    </a>
+                                </li>
+
+                            </ul>
 
                         </div>
+
+
+                        <!-- COLUMN 2 -->
+                        <div class="mega-menu__column">
+
+                            <h3 class="mega-menu__heading">
+                                Psychological Assessment & Support
+                            </h3>
+
+                            <ul class="mega-menu__list">
+
+                                <li>
+                                    <a href="#">
+                                        Psychological Assessment
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="#">
+                                        Counseling
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="#">
+                                        Consultation
+                                    </a>
+                                </li>
+
+                            </ul>
+
+                        </div>
+
+
+                        <!-- COLUMN 3 -->
+                        <div class="mega-menu__column">
+
+                            <div class="mega-menu__feature">
+
+                                <img src="therapy.jfif"
+                                     alt="KZen Psychological Services">
+
+                                <div class="mega-menu__feature-content">
+
+                                    <h4>
+                                        A Safe Space for Healing
+                                    </h4>
+
+                                    <p>
+                                        Compassionate psychological
+                                        services designed to support
+                                        your mental health and wellbeing.
+                                    </p>
+
+                                    <a href="#appointment"
+                                       class="mega-menu__cta">
+                                        Book an Appointment
+                                    </a>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
 
                     </div>
 
@@ -264,74 +432,52 @@
 
             </div>
 
-        </div>
-
-    </div>
-
-</li>
+        </li>
 
 
-                                <p>
-                                    Compassionate psychological services
-                                    designed to support your wellbeing.
-                                </p>
+        <!-- PRICING -->
+        <li>
+            <a href="#" class="nav-link">
+                Pricing
 
-                                <a href="#"
-                                   class="mega-menu__cta">
-                                    Learn More
-                                </a>
-
-    </li>
-
-
-    <!-- PRICING -->
-    <li class="mega-menu-item">
-        <a href="#" 
-          class="nav-link">
-            Pricing
-
-            <svg class="animated-border-svg"
-                 viewBox="0 0 100 40"
-                 preserveAspectRatio="none">
-                <rect width="100%" height="100%" rx="8" />
-            </svg>
-
-        </a>
-    </li>
+                <svg class="animated-border-svg"
+                     viewBox="0 0 100 40"
+                     preserveAspectRatio="none">
+                    <rect width="100%" height="100%" rx="8" />
+                </svg>
+            </a>
+        </li>
 
 
-    <!-- ABOUT -->
-    <li>
-        <a href="#" class="nav-link">
-            About
+        <!-- ABOUT -->
+        <li>
+            <a href="#" class="nav-link">
+                About
 
-            <svg class="animated-border-svg"
-                 viewBox="0 0 100 40"
-                 preserveAspectRatio="none">
-                <rect width="100%" height="100%" rx="8" />
-            </svg>
+                <svg class="animated-border-svg"
+                     viewBox="0 0 100 40"
+                     preserveAspectRatio="none">
+                    <rect width="100%" height="100%" rx="8" />
+                </svg>
+            </a>
+        </li>
 
-        </a>
-    </li>
 
+        <!-- APPOINTMENT -->
+        <li>
+            <a href="#" class="nav-link">
+                Set an Appointment
 
-    <!-- APPOINTMENT -->
-    <li>
-        <a href="#" class="nav-link">
-            Set an Appointment
+                <svg class="animated-border-svg"
+                     viewBox="0 0 100 40"
+                     preserveAspectRatio="none">
+                    <rect width="100%" height="100%" rx="8" />
+                </svg>
+            </a>
+        </li>
 
-            <svg class="animated-border-svg"
-                 viewBox="0 0 100 40"
-                 preserveAspectRatio="none">
-                <rect width="100%" height="100%" rx="8" />
-            </svg>
+    </ul>
 
-        </a>
-    </li>
-
-</ul>
-
-                </ul>
             </nav>
             <button class="navbar__mobile-toggle" id="mobile-toggle" aria-label="Open Menu">
                 <svg width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z" /></svg>
